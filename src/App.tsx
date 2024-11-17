@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 interface Hero {
    name: string;
@@ -6,16 +7,20 @@ interface Hero {
 }
 
 const App = () => {
-   const [heroList, setHeroList] = useState([
-      {
-         name: 'Peter Parker',
-         aka: 'spiderman',
-      },
-      {
-         name: 'Peter Parker',
-         aka: 'spiderman',
-      },
-   ] as Hero[]);
+   const [heroList, setHeroList] = useState([] as Hero[]);
+
+   useEffect(() => {
+      const fetchData = async () => {
+         try {
+            const response = await axios.get('http://localhost:8080/heroes');
+            setHeroList(response.data as Hero[]);
+         } catch (error) {
+            console.error(error);
+         }
+      };
+
+      fetchData();
+   }, []);
 
    return (
       <>
@@ -25,7 +30,7 @@ const App = () => {
                display: 'flex',
                flexDirection: 'column',
                margin: '0 auto',
-               maxWidth: '300px',
+               maxWidth: '400px',
                fontFamily: 'Arial',
             }}
          >
