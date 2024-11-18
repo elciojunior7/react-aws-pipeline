@@ -13,7 +13,8 @@ const App = () => {
       const fetchData = async () => {
          try {
             const response = await axios.get('http://localhost:8080/heroes');
-            setHeroList(response.data as Hero[]);
+            if (response.data) setHeroList(response.data as Hero[]);
+            else setHeroList([{ name: 'Peter Parker', aka: 'Spiderman' }]);
          } catch (error) {
             console.error(error);
          }
