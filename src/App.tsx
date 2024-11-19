@@ -7,14 +7,15 @@ interface Hero {
 }
 
 const App = () => {
-   const [heroList, setHeroList] = useState([] as Hero[]);
+   const [heroList, setHeroList] = useState([
+      { name: 'Peter Parker', aka: 'Spiderman' },
+   ] as Hero[]);
 
    useEffect(() => {
       const fetchData = async () => {
          try {
-            const response = await axios.get('http://localhost:8080/heroes');
+            const response = await axios.get(import.meta.env.VITE_API_URL);
             if (response.data) setHeroList(response.data as Hero[]);
-            else setHeroList([{ name: 'Peter Parker', aka: 'Spiderman' }]);
          } catch (error) {
             console.error(error);
          }
