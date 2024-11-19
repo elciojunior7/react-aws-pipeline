@@ -1,4 +1,4 @@
-# Vite + React Project to test AWS pipeline
+# Vite + React Project to test AWS amplify
 This is a simple frontend project. Its purpose is to display a list of Heroes 🦸‍♂️🦸‍♂️ on the screen by consuming the following API -> [link](https://github.com/elciojunior7/java-lambda)
 
 ## How to run locally 🏠
