@@ -63,6 +63,7 @@ const App = () => {
                         border: '1px solid #e91',
                      }}
                   >
+                     <b>Index</b>
                      <b>Name</b>
                      <b>A.K.A.</b>
                   </div>
@@ -83,10 +84,30 @@ const App = () => {
                                  index % 2 === 0 ? '#e91' : 'white',
                               border: '1px solid #e91',
                               padding: '7px 0',
+                              textAlign: 'center',
                            }}
                         >
-                           <span>{hero.name}</span>
-                           <span>{hero.aka}</span>
+                           <span
+                              style={{
+                                 width: '20%',
+                              }}
+                           >
+                              {index}
+                           </span>
+                           <span
+                              style={{
+                                 width: '40%',
+                              }}
+                           >
+                              {hero.name}
+                           </span>
+                           <span
+                              style={{
+                                 width: '40%',
+                              }}
+                           >
+                              {hero.aka}
+                           </span>
                         </div>
                      ))}
                   </div>
